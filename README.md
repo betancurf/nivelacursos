@@ -9,4 +9,4 @@ Creado por:
 
 Fabian Betancur, Profesor Universidad del Norte
 
-Juan David Saa, Estufiante Mision Tic
+Juan David Saa, Estudiante Mision Tic
