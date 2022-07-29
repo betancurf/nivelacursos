@@ -21,4 +21,4 @@ Creado por:
 
 Fabian Betancur, Profesor Universidad del Norte
 
-Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022
+Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
