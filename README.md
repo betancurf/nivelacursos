@@ -21,8 +21,4 @@ Creado por:
 
 Fabian Betancur, Profesor Universidad del Norte
 
-<<<<<<< HEAD
-Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
-=======
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
->>>>>>> 9dfc79f953a4ef9aef53f9b213e92a7d23f6f551
