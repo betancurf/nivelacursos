@@ -9,3 +9,4 @@ Creado por:
 
 Fabian Betancur, Profesor Universidad del Norte
 Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
+Laura Pinzon Moreno Ingeniera Ambiental 
