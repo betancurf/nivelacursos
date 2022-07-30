@@ -37,6 +37,10 @@ Natalia Morales, Estudiante Uninorte
 Diego Rodriguez, Uninorte
 
 
+
+Juan David Saa, Estudiante Mision Tic
+
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
 
+ SGOLDYT
 
