@@ -36,5 +36,6 @@ Tarea 2:
 - Diego Rodriguez, Uninorte
 - Juan David Saa, Estudiante Mision Tic
 - SGOLDYT
+- [Mauricio Martinez](https://xhlar.com)
 
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
