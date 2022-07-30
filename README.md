@@ -5,8 +5,8 @@ Tarea 0:
 - Crear la cuenta de github 
 - Aceptar ser colaborador del proyecto de Nivelacursos
 - Clonar el repo 
+- Solicitar ser colaborador en el repositorio enviándole un mensaje de Whatsapp al profesor con su usuario de github
 - Crear llaves SSH o Token [aquí tienen un instructivo:](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
-- Avisar en la clase su nombre de usuario
 
 Tarea 1:
 - Hacer pull del repo remoto # git pull
@@ -25,7 +25,6 @@ Tarea 2:
 - Crear un commit
 - git push 
 - Ir a github, y hacer un Pull Request
-
 
 Creado por:
 
