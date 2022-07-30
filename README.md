@@ -34,4 +34,7 @@ Laura Pinzon Moreno Ingeniera Ambiental
 
 Natalia Morales, Estudiante Uninorte
 
+Diego Rodriguez, Uninorte
+
+
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
