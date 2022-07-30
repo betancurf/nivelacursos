@@ -26,22 +26,15 @@ Tarea 2:
 - git push 
 - Ir a github, y hacer un Pull Request
 
-Creado por:
 
-Fabian Betancur, profesor adjunto Universidad del Norte.
+## Creado por:
 
-Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
-Laura Pinzon Moreno Ingeniera Ambiental 
+- Fabian Betancur, Profesor Universidad del Norte
+- Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
+- Laura Pinzon Moreno Ingeniera Ambiental 
+- Natalia Morales, Estudiante Uninorte
+- Diego Rodriguez, Uninorte
+- Juan David Saa, Estudiante Mision Tic
+- SGOLDYT
 
-Natalia Morales, Estudiante Uninorte
-
-Diego Rodriguez, Uninorte
-
-
-
-Juan David Saa, Estudiante Mision Tic
-
-**Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.**
-
- SGOLDYT
-
+Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
