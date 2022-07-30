@@ -37,6 +37,6 @@ Tarea 2:
 - Juan David Saa, Estudiante Mision Tic
 - SGOLDYT
 - [Mauricio Martinez](https://xhlar.com)
-- santiago m, misiontic en uninorte
+- santiago m, ingeniero mecatrónico
 
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
