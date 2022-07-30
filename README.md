@@ -5,7 +5,8 @@ Tarea 0:
 - Crear la cuenta de github 
 - Aceptar ser colaborador del proyecto de Nivelacursos
 - Clonar el repo 
-- Crear llaves SSH o Token
+- Crear llaves SSH o Token [aquí tienen un instructivo:](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+- Avisar en la clase su nombre de usuario
 
 Tarea 1:
 - Hacer pull del repo remoto # git pull
@@ -34,6 +35,6 @@ Tarea 2:
 - Natalia Morales, Estudiante Uninorte
 - Diego Rodriguez, Uninorte
 - Juan David Saa, Estudiante Mision Tic
--  SGOLDYT
+- SGOLDYT
 
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
