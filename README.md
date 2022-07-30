@@ -30,4 +30,6 @@ Creado por:
 
 Fabian Betancur, Profesor Universidad del Norte
 
+Natalia Morales, Estudiante Uninorte
+
 Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
