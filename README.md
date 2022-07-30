@@ -31,4 +31,18 @@ Creado por:
 
 Fabian Betancur, profesor adjunto Universidad del Norte.
 
+Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
+Laura Pinzon Moreno Ingeniera Ambiental 
+
+Natalia Morales, Estudiante Uninorte
+
+Diego Rodriguez, Uninorte
+
+
+
+Juan David Saa, Estudiante Mision Tic
+
 **Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.**
+
+ SGOLDYT
+
