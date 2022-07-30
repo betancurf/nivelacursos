@@ -6,6 +6,7 @@ Tarea 0:
 - Aceptar ser colaborador del proyecto de Nivelacursos
 - Clonar el repo 
 - Crear llaves SSH o Token
+- Solicitar ser colaborador en el repositorio enviándole un mensaje de Whatsapp al profesor con su usuario de github
 
 Tarea 1:
 - Hacer pull del repo remoto # git pull
@@ -24,7 +25,6 @@ Tarea 2:
 - Crear un commit
 - git push 
 - Ir a github, y hacer un Pull Request
-
 
 Creado por:
 
