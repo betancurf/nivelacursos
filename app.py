@@ -11,6 +11,10 @@ app.register_blueprint(blue_cursos, url_prefix="/cursos")
 def index():
     return render_template("index.html")
 
+@app.route("/services")
+def service():
+    return render_template("services.html")
+
 @app.route("/faq")
 def faq():
     return "Pagina de preguntas frecuentes"
