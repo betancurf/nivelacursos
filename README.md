@@ -5,8 +5,8 @@ Tarea 0:
 - Crear la cuenta de github 
 - Aceptar ser colaborador del proyecto de Nivelacursos
 - Clonar el repo 
+- Solicitar ser colaborador en el repositorio enviándole un mensaje de Whatsapp al profesor con su usuario de github
 - Crear llaves SSH o Token [aquí tienen un instructivo:](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
-- Avisar en la clase su nombre de usuario
 
 Tarea 1:
 - Hacer pull del repo remoto # git pull
@@ -27,22 +27,16 @@ Tarea 2:
 - Ir a github, y hacer un Pull Request
 
 
-Creado por:
+## Creado por:
 
-Fabian Betancur, profesor adjunto Universidad del Norte.
-
-Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
-Laura Pinzon Moreno Ingeniera Ambiental 
-
-Natalia Morales, Estudiante Uninorte
-
-Diego Rodriguez, Uninorte
-
-
-
-Juan David Saa, Estudiante Mision Tic
+- Fabian Betancur, Profesor Universidad del Norte
+- Juan David Caicedo Aponte Estudiante Administración de Sistemas Informáticos
+- Laura Pinzon Moreno Ingeniera Ambiental 
+- Natalia Morales, Estudiante Uninorte
+- Diego Rodriguez, Uninorte
+- Juan David Saa, Estudiante Mision Tic
+- SGOLDYT
+- [Mauricio Martinez](https://xhlar.com)
+- santiago m, ingeniero mecatrónico
 
 **Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.**
-
- SGOLDYT
-
