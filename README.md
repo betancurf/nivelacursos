@@ -26,6 +26,12 @@ Tarea 2:
 - git push 
 - Ir a github, y hacer un Pull Request
 
+Tarea 3:
+- Descargar el template: [Logis](https://bootstrapmade.com/logis-bootstrap-logistics-website-template/)
+- Añadir los archivos estaticos al proyecto
+- Implementar la pagina del index basado en el html del template
+- Direccionar adecuadamente los archivos estaticos empleando **{{url_for('static', filename='/ruta/del/archivo/dentro/de/la/carpeta/static')}}**
+
 
 ## Creado por:
 
@@ -39,4 +45,4 @@ Tarea 2:
 - [Mauricio Martinez](https://xhlar.com)
 - santiago m, ingeniero mecatrónico
 
-Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.
+**Y todos los demás estudiantes de misión tic en Uninorte para ciclo3 en 2022.**
