@@ -26,6 +26,12 @@ Tarea 2:
 - git push 
 - Ir a github, y hacer un Pull Request
 
+Tarea 3:
+- Descargar el template: [Logis](https://bootstrapmade.com/logis-bootstrap-logistics-website-template/)
+- Añadir los archivos estaticos al proyecto
+- Implementar la pagina del index basado en el html del template
+- Direccionar adecuadamente los archivos estaticos empleando **{{url_for('static', filename='/ruta/del/archivo/dentro/de/la/carpeta/static')}}**
+
 
 ## Creado por:
 
