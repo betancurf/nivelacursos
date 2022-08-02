@@ -28,9 +28,10 @@ Tarea 2:
 
 Tarea 3:
 - Descargar el template: [Logis](https://bootstrapmade.com/logis-bootstrap-logistics-website-template/)
-- Añadir los archivos estaticos al proyecto
-- Implementar la pagina del index basado en el html del template
-- Direccionar adecuadamente los archivos estaticos empleando **{{url_for('static', filename='/ruta/del/archivo/dentro/de/la/carpeta/static')}}**
+- Añadir los archivos estaticos al proyecto (carpeta assets dentro del  template pasa a llamarse static dentro del proyecto)
+- Implementar las paginas asignadas por el profesor basado en el html del template
+- Añadir la ruta de la pagina asignada a las rutas de la aplicación principal
+- Direccionar adecuadamente los archivos estaticos empleando **{{url_for('static', filename='/ruta/del/archivo/dentro/de/la/carpeta/static')}}** 
 
 
 ## Creado por:
