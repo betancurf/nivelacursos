@@ -27,8 +27,9 @@ def service():
 def faq():
     return "Pagina de preguntas frecuentes"
 
-@app.route("/contact")
-def contact():
+
+@app.route("/contacto")
+def contacto_f():
     return render_template("contact.html")
 
 if __name__ == "__main__":
