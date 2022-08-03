@@ -79,7 +79,8 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                    <li><a href="{{ url_for('contact') }}" class="{% if request.endpoint == 'contact'%}active{% endif %}">Contact</a></li>
                     <li><a class="get-a-quote" href="get-a-quote.html">Get a Quote</a></li>
                 </ul>
             </nav><!-- .navbar -->
