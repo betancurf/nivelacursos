@@ -33,6 +33,26 @@ Tarea 3:
 - Añadir la ruta de la pagina asignada a las rutas de la aplicación principal
 - Direccionar adecuadamente los archivos estaticos empleando **{{url_for('static', filename='/ruta/del/archivo/dentro/de/la/carpeta/static')}}** 
 
+Tarea 4:
+- Implementar {% extends "base" %} en los archivos html indicados
+- Hacer pull resquest
+
+Tarea 5:
+- Enviar información del frontend al backend
+    - Usando formulario
+    - Usando query string
+- Implementar logica segun los datos enviados
+
+Plan de tarea Tarea 6:
+- Implementar {% include "fragment" %} en los archivos html indicados
+- Trabajar con Bases de datos usando Peewee
+- Trabajar con Migraciones
+
+Plan de tarea Tarea 7:
+- Creacion de usuario
+- Login de usuario
+- Paginas que requieren login
+
 
 ## Creado por:
 
