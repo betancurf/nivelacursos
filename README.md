@@ -37,15 +37,14 @@ Tarea 4:
 - Implementar {% extends "base" %} en los archivos html indicados
 - Hacer pull resquest
 
-Plan de tarea 5:
-- Implementar {% include "fragment" %} en los archivos html indicados
+Tarea 5:
 - Enviar información del frontend al backend
     - Usando formulario
     - Usando query string
-    - Usando body
 - Implementar logica segun los datos enviados
 
 Plan de tarea Tarea 6:
+- Implementar {% include "fragment" %} en los archivos html indicados
 - Trabajar con Bases de datos usando Peewee
 - Trabajar con Migraciones
 
@@ -53,7 +52,6 @@ Plan de tarea Tarea 7:
 - Creacion de usuario
 - Login de usuario
 - Paginas que requieren login
-
 
 
 ## Creado por:
