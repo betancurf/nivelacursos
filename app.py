@@ -49,19 +49,19 @@ def inicio():
     ]
 
     return render_template(
-        'index.html',
+        'estaticas/index.html',
         servicios=sample(info_servicios, 3)
     )
 
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('estaticas/about.html')
 
 
 @app.route("/services")
 def service():
-    return render_template("services.html")
+    return render_template("estaticas/services.html")
 
 
 @app.route("/faq")
@@ -88,7 +88,7 @@ def contacto_f():
     # Si es get, mostrar la pagina normalita
     if request.method == "GET":
         # return f"Se hizo get con los siguientes parametros: {request.args}"
-        return render_template("contact.html")
+        return render_template("estaticas/contact.html")
     
     # Sino, si es POST vamos a hacer alguna cosas
     elif request.method == "POST":
