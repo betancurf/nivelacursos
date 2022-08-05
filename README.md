@@ -67,12 +67,12 @@ Tarea 5:
     - Usando query string
 - Implementar logica segun los datos enviados
 
-Plan de tarea Tarea 6:
+Tarea 6:
 - Implementar {% include "fragment" %} en los archivos html indicados
 - Trabajar con Bases de datos usando Peewee
 - Trabajar con Migraciones
 
-Plan de tarea Tarea 7:
+Tarea 7:
 - Creacion de usuario
 - Login de usuario
 - Paginas que requieren login
