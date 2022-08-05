@@ -6,10 +6,22 @@ from flask import url_for
 from modulos.cursos import blue_cursos
 from pprint import pprint
 from random import sample
+from modelos import db
+from modelos import PQR
 
+# Zona de configuración de la app principal
 app = Flask(__name__)
+app.config["DATABASE_URL"] = "sqlite:///db.sqlite3"
+
+# Zona de inicialización de herramientas
+db.init_app(app)
+
+# Zona de registro de blueprints
 app.register_blueprint(blue_cursos, url_prefix="/cursos")
 
+
+
+# Zona de endpoints
 
 @app.route("/")
 @app.route("/index")
@@ -157,32 +169,32 @@ def faq():
 
 @app.route("/contacto", methods=['GET', 'POST'])
 def contacto_f():
-    print(f"---> Estoy en pagina de contacto, con metodo: {request.method}")
-    pprint(request.args)
-    pprint(request.form)
-
-    msg = f"""
-        Mensaje enviado con exito
-        <br>
-        Valores del query string: {request.args}
-        <br>
-        Valores del formulario: {request.form}
-        """
-    
-    pprint(msg)
-
     # Si es get, mostrar la pagina normalita
     if request.method == "GET":
-        # return f"Se hizo get con los siguientes parametros: {request.args}"
         return render_template("estaticas/contact.html")
     
-    # Sino, si es POST vamos a hacer alguna cosas
+    # Sino, si es POST vamos a guardarlo en la base de datos
+    # y mostrar una pagina en blanco con la lista de los pqr realizados a la fecha
     elif request.method == "POST":
-        # Si en el POST se envio un nombre igual a Fabian, redireccionar al index
-        # if  request.form["name"] == "Fabian":
-        #     return redirect(url_for('inicio'))
+        # leemos la información del formulario
+        nombre = request.form.get("name")
+        email = request.form.get("email")
+        asunto = request.form.get("subject")
+        mensaje = request.form.get("message")
 
-        # Cualquiero otro nombre recibe este mensaje:
+        # Validamos que ningun campo esté vacio
+        if nombre and email and asunto and mensaje:
+            # Creamos un nuevo PQR en la base de datos
+            PQR.create(
+                nombre=nombre,
+                email=email,
+                asunto=asunto,
+                mensaje=mensaje,
+            )
+            
+        # Mostramos un mensaje con todos los PQR creados hasta el momento:
+        # No asustarse por esa linea de codigo, simplemente es para no escirbir una pagina completa de html
+        msg = f"{'<br>'.join([f'<br><br>{pqr.asunto}: <br>{pqr.mensaje}<br>-{pqr.nombre}, {pqr.email}' for pqr in list(PQR.select())])}"
         return msg
 
 
