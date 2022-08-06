@@ -6,11 +6,12 @@ from playhouse.flask_utils import FlaskDB
 from uuid  import uuid4
 from strenum import StrEnum
 from enum import auto
+from flask_login import UserMixin
 
 db = FlaskDB()
 
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     class ROLES(StrEnum):
         ADMIN = auto()
         PROFESOR = auto()

@@ -1,8 +1,12 @@
+from crypt import methods
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
+from flask_login import LoginManager
+from flask_login import login_user
+from flask_login import logout_user
 from modulos.cursos import blue_cursos
 from modulos.usuarios import blue_usuarios
 from pprint import pprint
@@ -11,16 +15,39 @@ from modelos import db
 from modelos import PQR
 from modelos import Usuario
 
+from bcrypt import gensalt
+from bcrypt import hashpw as encriptar_password
+from bcrypt import checkpw as confirmar_password
+
 # Zona de configuración de la app principal
 app = Flask(__name__)
+
+# Estas configuraciones NO deberían estar aquí. Se debe crear
+# un archivo de configuración y este NO debe ser compartido por
+# medio de github. Solo están aquí a modo de ejemplo y serán
+# removidos en proximas clases...
 app.config["DATABASE_URL"] = "sqlite:///db.sqlite3"
+app.config["SECRET_KEY"] = "ah fskdbfjha fi23i2b3i4b23kb,m c"
 
 # Zona de inicialización de herramientas
-db.init_app(app)
+db.init_app(app)  # Inicializa la base de datos con peewee
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 # Zona de registro de blueprints
 app.register_blueprint(blue_cursos, url_prefix="/cursos")
 app.register_blueprint(blue_usuarios, url_prefix="/usuarios")
+
+
+# Zona de funciones de ayuda
+@login_manager.user_loader
+def user_loader(user_id):
+    try:
+        user = Usuario.get(Usuario.id == user_id)
+        return user
+    except:
+        return 
 
 
 # Zona de endpoints
@@ -213,21 +240,51 @@ def registro_f():
         telefono = request.form.get("telefono")
 
         if nickname and correo and password:
+            pass_seguro = encriptar_password( password.encode("utf-8"), gensalt())
             try:
-                u = Usuario.create(
+                nuevo_usuario = Usuario.create(
                     nickname=nickname,
                     correo=correo,
-                    password=password,
+                    password=pass_seguro,
                     nombre=nombre,
                     apellidos=apellidos,
                     telefono=telefono
                 )
+                login_user(nuevo_usuario)
                 return redirect(url_for('app_usuarios.perfil'))
             except Exception as e:
                 return f"Error, no se pudo crear el usuario: {e}"
         return "Error, datos incompletos"
 
 
+@app.route("/ingreso", methods=["GET", "POST"])
+def ingreso_f():
+    if request.method == "GET":
+        return render_template("usuarios/ingreso.html")
+    else:
+        nickname = request.form.get("nickname")
+        password = request.form.get("password")
+        if nickname and password:
+            try:
+                usuario = Usuario.get(nickname=nickname)
+            except Exception as e:
+                return f"Error, no se pudo obtener el usuario"
+
+            pass_actual = usuario.password
+            hacen_match = confirmar_password(password.encode("utf-8"), pass_actual.encode("utf-8"))
+
+            if hacen_match:
+                login_user(usuario)
+                return redirect(url_for('app_usuarios.perfil'))
+            else:
+                return f"Error, usuario o contraseña no validos"            
+        return "Error, datos incompletos"
+
+
+@app.route("/salir")
+def salir_f():
+    logout_user()
+    return redirect(url_for("inicio"))
 
 if __name__ == "__main__":
     app.run(debug=True)
