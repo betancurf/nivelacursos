@@ -4,10 +4,12 @@ from flask import request
 from flask import redirect
 from flask import url_for
 from modulos.cursos import blue_cursos
+from modulos.usuarios import blue_usuarios
 from pprint import pprint
 from random import sample
 from modelos import db
 from modelos import PQR
+from modelos import Usuario
 
 # Zona de configuración de la app principal
 app = Flask(__name__)
@@ -18,7 +20,7 @@ db.init_app(app)
 
 # Zona de registro de blueprints
 app.register_blueprint(blue_cursos, url_prefix="/cursos")
-
+app.register_blueprint(blue_usuarios, url_prefix="/usuarios")
 
 
 # Zona de endpoints
@@ -196,6 +198,35 @@ def contacto_f():
         # No asustarse por esa linea de codigo, simplemente es para no escirbir una pagina completa de html
         msg = f"{'<br>'.join([f'<br><br>{pqr.asunto}: <br>{pqr.mensaje}<br>-{pqr.nombre}, {pqr.email}' for pqr in list(PQR.select())])}"
         return msg
+
+
+@app.route("/registro", methods=["GET", "POST"])
+def registro_f():
+    if request.method == "GET":
+        return render_template("usuarios/registro.html")
+    else:
+        nickname = request.form.get("nickname")
+        correo = request.form.get("correo")
+        password = request.form.get("password")
+        nombre = request.form.get("nombre")
+        apellidos = request.form.get("apellidos")
+        telefono = request.form.get("telefono")
+
+        if nickname and correo and password:
+            try:
+                u = Usuario.create(
+                    nickname=nickname,
+                    correo=correo,
+                    password=password,
+                    nombre=nombre,
+                    apellidos=apellidos,
+                    telefono=telefono
+                )
+                return redirect(url_for('app_usuarios.perfil'))
+            except Exception as e:
+                return f"Error, no se pudo crear el usuario: {e}"
+        return "Error, datos incompletos"
+
 
 
 if __name__ == "__main__":

@@ -17,7 +17,7 @@ Proyecto falso para las clases de programación de ciclo 3, Uninorte.
         1. Modificar el archivo de modelos.py
         2. Crear la migración:
         ```bash
-        $ pw_migrate create --auto --database "sqlite:///db.sqlite3"  --auto-source modelos.py <nombre_de_la_migracion>
+        $ pw_migrate create --auto --database "sqlite:///db.sqlite3"  --auto-source modelos <nombre_de_la_migracion>
         ``` 
         3. Aplicar la migracion
         ```bash
