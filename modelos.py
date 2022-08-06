@@ -6,11 +6,12 @@ from playhouse.flask_utils import FlaskDB
 from uuid  import uuid4
 from strenum import StrEnum
 from enum import auto
+from flask_login import UserMixin
 
 db = FlaskDB()
 
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     class ROLES(StrEnum):
         ADMIN = auto()
         PROFESOR = auto()
@@ -48,10 +49,12 @@ class Usuario(db.Model):
     '''
 
     id = UUIDField(primary_key=True, default=uuid4)
-    nombre = CharField()
-    apellido = CharField(null=True)
+    nickname = CharField(unique=True, default="N/A")
+    correo = CharField(unique=True)
+    password = CharField(default="1234")
+    nombre = CharField(null=True)
+    apellidos = CharField(null=True)
     telefono = CharField(null=True)
-    correo = CharField()
     rol = CharField(
         default=ROLES.ESTUDIANTE.value,
         choices=[(r.name, r.value) for r in ROLES]

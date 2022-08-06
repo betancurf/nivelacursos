@@ -1,4 +1,4 @@
-"""Peewee migrations -- 001_Inicial.py.
+"""Peewee migrations -- 007_Agrega_default.py.
 
 Some examples (model - class or model name)::
 
@@ -37,35 +37,10 @@ SQL = pw.SQL
 def migrate(migrator: Migrator, database, fake=False, **kwargs):
     """Write your migrations here."""
 
-    @migrator.create_model
-    class Usuario(pw.Model):
-        id = pw.UUIDField(primary_key=True)
-        nombre = pw.CharField(max_length=255)
-        apellido = pw.CharField(max_length=255, null=True)
-        telefono = pw.CharField(max_length=255, null=True)
-        correo = pw.CharField(max_length=255)
-        rol = pw.CharField(constraints=[SQL("DEFAULT 'ESTUDIANTE'")], default='ESTUDIANTE', max_length=255)
-        nickname=pw.CharField(max_length=255)
-        password=pw.CharField(max_length=255)
-        class Meta:
-            table_name = "usuario"
-
-    @migrator.create_model
-    class Curso(pw.Model):
-        id = pw.UUIDField(primary_key=True)
-        creador = pw.ForeignKeyField(backref='curso_set', column_name='creador_id', field='id', model=migrator.orm['usuario'])
-        nombre = pw.CharField(max_length=255)
-        descripcion = pw.CharField(max_length=255, null=True)
-        url_foto = pw.CharField(max_length=255)
-
-        class Meta:
-            table_name = "curso"
-
+    migrator.drop_not_null('usuario', 'nombre')
 
 
 def rollback(migrator: Migrator, database, fake=False, **kwargs):
     """Write your rollback migrations here."""
 
-    migrator.remove_model('curso')
-
-    migrator.remove_model('usuario')
+    migrator.add_not_null('usuario', 'nombre')

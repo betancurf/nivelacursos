@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Registro
+{% endblock %}
+
+{% block contenido %}
+
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('static/img/page-header.jpg');">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Ingreso</h2>
+            <p>Bienvenido de regreso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Ingreso</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+
+
+<section id="get-a-quote" class="get-a-quote">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="row g-0">
+
+        <div class="col-lg-5 quote-bg" style="background-image: url(static/img/quote-bg.jpg);"></div>
+
+        <div class="col-lg-7">
+          <form action="{{ url_for('ingreso_f') }}" method="post">
+            <h3>Información de ingreso</h3>
+            <!-- <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p> -->
+            <div class="row gy-4">
+
+              <div class="col-md-6">
+                <input
+                    type="text"
+                    name="nickname"
+                    class="form-control"
+                    placeholder="Nickname"
+                    required=""
+                >
+              </div>
+
+              <div class="col-md-6">
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Password"
+                    required=""
+                >
+              </div>
+
+
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+
+                <button type="submit">Ingresar</button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- End Quote Form -->
+
+      </div>
+
+    </div>
+  </section>
+  
+{% endblock %}
