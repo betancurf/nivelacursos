@@ -82,6 +82,7 @@
                     <li><a href="{{ url_for('contacto_f') }}" class="{% if request.endpoint == 'contacto_f'%}active{% endif %}">Contact</a></li>
                     
                     {% if current_user.id %}
+                    <li><a class="get-a-quote" href="{{url_for('app_usuarios.perfil_f')}}">Perfil</a></li>
                         <li><a class="get-a-quote" href="{{url_for('salir_f')}}">Salir</a></li>
                     {% else %}
                         <li><a class="get-a-quote" href="{{url_for('ingreso_f')}}">Ingresar</a></li>

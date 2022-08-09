@@ -247,12 +247,10 @@ def registro_f():
                     password=pass_seguro,
                     nombre=nombre,
                     apellidos=apellidos,
-                    telefono=telefono,
-                    rol="ESTUDIANTE"
+                    telefono=telefono
                 )
-                
                 login_user(nuevo_usuario)
-                return redirect(url_for('app_usuarios.perfil'))
+                return redirect(url_for('app_usuarios.perfil_f'))
             except Exception as e:
                 return f"Error, no se pudo crear el usuario: {e}"
         return "Error, datos incompletos"
@@ -276,7 +274,7 @@ def ingreso_f():
 
             if hacen_match:
                 login_user(usuario)
-                return redirect(url_for('app_usuarios.perfil'))
+                return redirect(url_for('app_usuarios.perfil_f'))
             else:
                 return f"Error, usuario o contraseña no validos"            
         return "Error, datos incompletos"
