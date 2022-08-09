@@ -6,9 +6,9 @@ Proyecto falso para las clases de programación de ciclo 3, Uninorte.
 - Si es la primera vez usando este proyecto:
     - Clonar el repo
     - Ejecutar
-    ´´´bash
+    ```bash
     pw_migrate migrate --database "sqlite:///db.sqlite3"
-    ´´´
+    ```
 
 - Si vas a actualizar el proyecto:
     - Solicitar ser colaborador
