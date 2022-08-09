@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -248,8 +247,10 @@ def registro_f():
                     password=pass_seguro,
                     nombre=nombre,
                     apellidos=apellidos,
-                    telefono=telefono
+                    telefono=telefono,
+                    rol="ESTUDIANTE"
                 )
+                
                 login_user(nuevo_usuario)
                 return redirect(url_for('app_usuarios.perfil'))
             except Exception as e:
