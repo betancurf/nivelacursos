@@ -77,6 +77,9 @@ Tarea 7:
 - Login de usuario
 - Paginas que requieren login
 
+PENDIENTE!
+Cambiar la librería crypt para windows
+
 
 ## Creado por:
 
