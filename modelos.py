@@ -63,10 +63,16 @@ class Usuario(db.Model, UserMixin):
 
 class Curso(db.Model):
     id = UUIDField(primary_key=True, default=uuid4)
-    creador = ForeignKeyField(Usuario)
+    creador = ForeignKeyField(Usuario, backref="cursos_creados")
     nombre = CharField()
     descripcion = CharField(null=True)
     url_foto = CharField()
+
+
+class UsuarioCurso(db.Model):
+    usuario = ForeignKeyField(Usuario)
+    curso = ForeignKeyField(Curso)
+    nota = FloatField(default=0)
 
 
 class PQR(db.Model):

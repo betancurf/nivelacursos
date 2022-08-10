@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -15,9 +14,7 @@ from modelos import db
 from modelos import PQR
 from modelos import Usuario
 
-from bcrypt import gensalt
-from bcrypt import hashpw as encriptar_password
-from bcrypt import checkpw as confirmar_password
+from passlib.hash import pbkdf2_sha256 as sha256
 
 # Zona de configuración de la app principal
 app = Flask(__name__)
@@ -49,6 +46,13 @@ def user_loader(user_id):
     except:
         return 
 
+
+def encriptar_password(texto_plano: str) -> str:
+    texto_seguro = sha256.hash(texto_plano.encode("utf-8"))
+    return texto_seguro
+
+def validar_password(texto_plano:str , texto_seguro: str)-> str:
+    return sha256.verify(texto_plano.encode("utf-8"), texto_seguro)
 
 # Zona de endpoints
 
@@ -240,7 +244,7 @@ def registro_f():
         telefono = request.form.get("telefono")
 
         if nickname and correo and password:
-            pass_seguro = encriptar_password( password.encode("utf-8"), gensalt())
+            pass_seguro = encriptar_password(password)
             try:
                 nuevo_usuario = Usuario.create(
                     nickname=nickname,
@@ -251,7 +255,7 @@ def registro_f():
                     telefono=telefono
                 )
                 login_user(nuevo_usuario)
-                return redirect(url_for('app_usuarios.perfil'))
+                return redirect(url_for('app_usuarios.perfil_f'))
             except Exception as e:
                 return f"Error, no se pudo crear el usuario: {e}"
         return "Error, datos incompletos"
@@ -271,11 +275,11 @@ def ingreso_f():
                 return f"Error, no se pudo obtener el usuario"
 
             pass_actual = usuario.password
-            hacen_match = confirmar_password(password.encode("utf-8"), pass_actual.encode("utf-8"))
+            hacen_match = validar_password(password, pass_actual)
 
             if hacen_match:
                 login_user(usuario)
-                return redirect(url_for('app_usuarios.perfil'))
+                return redirect(url_for('app_usuarios.perfil_f'))
             else:
                 return f"Error, usuario o contraseña no validos"            
         return "Error, datos incompletos"

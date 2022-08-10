@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Perfil
+{% endblock %}
+
+
+{% block contenido %}
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url({{url_for('static', filename='/img/page-header.jpg')}});">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Perfil de usuario</h2>
+            <!-- <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="{{ url_for('inicio') }}">Home</a></li>
+          <li>Services</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Breadcrumbs -->
+    
+
+  <!-- ======= Seccion Mis cursos ======= -->
+  <section id="service" class="services pt-0">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <span>Mis cursos</span>
+        <h2>Mis cursos</h2>
+
+      </div>
+
+      <div class="row gy-4">
+        
+        {% for curso in mis_cursos %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                <div class="card-img">
+                    <img src="{{ url_for('static', filename='img/storage-service.jpg') }}" alt="" class="img-fluid">
+                </div>
+                <h3><a href="service-details.html" class="stretched-link">Storage</a></h3>
+                <p>Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam repellendus temporibus itaqueofficiis odit</p>
+                </div>
+            </div><!-- End Card Item -->
+        {% else %}
+            Aun no has comenzado ningun curso...
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======= Seccion Cursos creados por im ======= -->
+  <section id="service" class="services pt-0">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <span>Cursos creados por mi</span>
+        <h2>Cursos creados por mi</h2>
+
+      </div>
+
+      <div class="row gy-4">
+        
+        {% for curso in cursos_creados %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                <div class="card-img">
+                    <img src="{{curso.url_foto}}" alt="" class="img-fluid">
+                </div>
+                <h3><a href="service-details.html" class="stretched-link">{{curso.nombre}}</a></h3>
+                <p>{{curso.descripcion}}</p>
+                </div>
+            </div><!-- End Card Item -->
+        {% else %}
+            Aun no has comenzado ningun curso...
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </section>
+{% endblock %}
