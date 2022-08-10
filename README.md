@@ -111,43 +111,6 @@ Tarea 7:
 - Login de usuario
 - Paginas que requieren login
 
-Tarea 8:
-- Pagina para crear cursos
-- Pagina para ver el detalle del curso
-    - Inscribirse al curso
-- En perfil deben salir:
-    - los cursos creados
-    - los cursos en los que estoy inscrito
-    - Boton para solicitar ser profesor
-
-Tarea 9:
-- Bloquear rama master
-- Crear admin:
-    - Crear un usuario cualquiera
-    - Ir a la base de datos y cambiar su ROL a "ADMIN"
-    - Crear archivo templates/admin/administrar_profesores.html
-        - Esta pagina debe tener una lista de las solicitudes de usuarios para ser profesores con dos botones/opciones:
-            - Aceptar
-            - Rechazar
-        - Debe tener una lista de los profesores actuales con la opcion de "degradar"
-    - Crear un modelo en modelos.py con el nombre "SolicitudSerProfesor" con estos campos:
-        - id Solicitante
-        - [fecha de solicitud](http://docs.peewee-orm.com/en/latest/peewee/models.html?highlight=table%20generation)
-    - Crear archivo modulos/admin.py
-        - crear una blueprint
-        - registrarla en la app principal
-        - crear un endpoint que rederice la pagina de administrar profesores
-            - el endpoint debe enviar al template la lista de las solicitudes
-            - el endpoint debe enviar al template la lista de los profesores actuales
-        - Cuando se haga post a este endpoint:
-            - Validar si el boton es para rechazar o para aceptar
-            - Si se acepta se cambia el rol
-            - independientemente si se acepta o no, se borra la solicitud
-
-Tarea 10:
-- Subir al servidor
-- Mensajes flash
-- Sesiones
 
 ## Creado por:
 
