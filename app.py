@@ -8,6 +8,7 @@ from flask_login import login_user
 from flask_login import logout_user
 from modulos.cursos import blue_cursos
 from modulos.usuarios import blue_usuarios
+from modulos.admin import blue_admin
 from pprint import pprint
 from random import sample
 from modelos import db
@@ -35,6 +36,7 @@ login_manager.init_app(app)
 # Zona de registro de blueprints
 app.register_blueprint(blue_cursos, url_prefix="/cursos")
 app.register_blueprint(blue_usuarios, url_prefix="/usuarios")
+app.register_blueprint(blue_admin, url_prefix="/admin")
 
 
 # Zona de funciones de ayuda
