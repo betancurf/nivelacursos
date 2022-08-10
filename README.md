@@ -25,32 +25,38 @@ Proyecto falso para las clases de programación de ciclo 3, Uninorte.
         ```
 
 ## Instrucciones para la entrega:
+Enfocarse en creare un PMV (P=producto M=minimo V=viable)
 
-<!-- # P=producto 
-# M=minimo
-# V=viable
-
-# ---- PMV
-# regsitro
-# login
-# paginas estaticas
-# perfil de usuario
-# crear producto
-# crear producto en carrito (En la sesion)
-# ----ALFA
-# - Simular la compra
-#     - Darle comprar al carrito y adjuntar un comprobante
-# - crear producto en carrito (En base de datos)
-# - Admin bannea usuarios
-# ---- BETA
-# - Simular envio
-#     - Vendedor debe adjuntar colilla de envio
-# - Sistema de quejas
-# ---- Final
-# - Subida en servidor propio (alquilado) con dominio
-# - Tener correo empresarial
-# - Asociar correo empresarial a la app -->
-
+Considero que pueden tomar esta ruta:
+- PMV
+    - regsitro
+    - login
+    - paginas estaticas
+    - perfil de usuario
+    - crear producto
+    - crear producto en carrito (En la sesion)
+    - roles de usuarios dados manualmente por base de datos
+- Version alpha:
+    - Simular la compra
+        - Darle comprar al carrito
+        - Los productos del carrito pasan al historial de compras del usuario
+        - Eliminar el carrito
+- Version beta (Hasta aquí es que lo que se pide que entreguen):
+    - Admin admite y/o bannea vendores
+    - Admin admite y/o bannea productos
+    - Crear producto en carrito (En base de datos)
+    - Subir al servidor
+- Version final:
+    ¡ Esto NO es necesario! solo es un preview de lo que pueden hacer en el futuro con esta app
+    - Subida en servidor propio (alquilado) con dominio
+    - Tener correo empresarial
+    - Asociar correo empresarial a la app
+    - Implementar sistema de chat
+    - Implementar sistema de comentarios en los productos
+    - Implementar sistema de calificación de los productos
+    - etc
+    - etc
+    - etc
 
 ## Tareas
 Tarea 0:
@@ -111,11 +117,8 @@ Tarea 8:
     - Inscribirse al curso
 - En perfil deben salir:
     - los cursos creados
-    - loc cursos en los que estoy inscrito
+    - los cursos en los que estoy inscrito
     - Boton para solicitar ser profesor
-- Pagina del admin 
-    - Menu para ver los usuarios que quieren ser profesores
-
 
 Tarea 9:
 - Bloquear rama master
@@ -140,7 +143,12 @@ Tarea 9:
             - Validar si el boton es para rechazar o para aceptar
             - Si se acepta se cambia el rol
             - independientemente si se acepta o no, se borra la solicitud
-            
+
+Tarea 10:
+- Subir al servidor
+- Mensajes flash
+- Sesiones
+
 ## Creado por:
 
 - Fabian Betancur, Profesor Universidad del Norte
