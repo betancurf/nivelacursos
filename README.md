@@ -24,6 +24,34 @@ Proyecto falso para las clases de programación de ciclo 3, Uninorte.
         $ pw_migrate migrate --database "sqlite:///db.sqlite3"
         ```
 
+## Instrucciones para la entrega:
+
+<!-- # P=producto 
+# M=minimo
+# V=viable
+
+# ---- PMV
+# regsitro
+# login
+# paginas estaticas
+# perfil de usuario
+# crear producto
+# crear producto en carrito (En la sesion)
+# ----ALFA
+# - Simular la compra
+#     - Darle comprar al carrito y adjuntar un comprobante
+# - crear producto en carrito (En base de datos)
+# - Admin bannea usuarios
+# ---- BETA
+# - Simular envio
+#     - Vendedor debe adjuntar colilla de envio
+# - Sistema de quejas
+# ---- Final
+# - Subida en servidor propio (alquilado) con dominio
+# - Tener correo empresarial
+# - Asociar correo empresarial a la app -->
+
+
 ## Tareas
 Tarea 0:
 - Crear la cuenta de github 
@@ -77,7 +105,42 @@ Tarea 7:
 - Login de usuario
 - Paginas que requieren login
 
+Tarea 8:
+- Pagina para crear cursos
+- Pagina para ver el detalle del curso
+    - Inscribirse al curso
+- En perfil deben salir:
+    - los cursos creados
+    - loc cursos en los que estoy inscrito
+    - Boton para solicitar ser profesor
+- Pagina del admin 
+    - Menu para ver los usuarios que quieren ser profesores
 
+
+Tarea 9:
+- Bloquear rama master
+- Crear admin:
+    - Crear un usuario cualquiera
+    - Ir a la base de datos y cambiar su ROL a "ADMIN"
+    - Crear archivo templates/admin/administrar_profesores.html
+        - Esta pagina debe tener una lista de las solicitudes de usuarios para ser profesores con dos botones/opciones:
+            - Aceptar
+            - Rechazar
+        - Debe tener una lista de los profesores actuales con la opcion de "degradar"
+    - Crear un modelo en modelos.py con el nombre "SolicitudSerProfesor" con estos campos:
+        - id Solicitante
+        - [fecha de solicitud](http://docs.peewee-orm.com/en/latest/peewee/models.html?highlight=table%20generation)
+    - Crear archivo modulos/admin.py
+        - crear una blueprint
+        - registrarla en la app principal
+        - crear un endpoint que rederice la pagina de administrar profesores
+            - el endpoint debe enviar al template la lista de las solicitudes
+            - el endpoint debe enviar al template la lista de los profesores actuales
+        - Cuando se haga post a este endpoint:
+            - Validar si el boton es para rechazar o para aceptar
+            - Si se acepta se cambia el rol
+            - independientemente si se acepta o no, se borra la solicitud
+            
 ## Creado por:
 
 - Fabian Betancur, Profesor Universidad del Norte
