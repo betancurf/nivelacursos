@@ -24,6 +24,40 @@ Proyecto falso para las clases de programación de ciclo 3, Uninorte.
         $ pw_migrate migrate --database "sqlite:///db.sqlite3"
         ```
 
+## Instrucciones para la entrega:
+Enfocarse en creare un PMV (P=producto M=minimo V=viable)
+
+Considero que pueden tomar esta ruta:
+- PMV
+    - regsitro
+    - login
+    - paginas estaticas
+    - perfil de usuario
+    - crear producto
+    - crear producto en carrito (En la sesion)
+    - roles de usuarios dados manualmente por base de datos
+- Version alpha:
+    - Simular la compra
+        - Darle comprar al carrito
+        - Los productos del carrito pasan al historial de compras del usuario
+        - Eliminar el carrito
+- Version beta (Hasta aquí es que lo que se pide que entreguen):
+    - Admin admite y/o bannea vendores
+    - Admin admite y/o bannea productos
+    - Crear producto en carrito (En base de datos)
+    - Subir al servidor
+- Version final:
+    ¡ Esto NO es necesario! solo es un preview de lo que pueden hacer en el futuro con esta app
+    - Subida en servidor propio (alquilado) con dominio
+    - Tener correo empresarial
+    - Asociar correo empresarial a la app
+    - Implementar sistema de chat
+    - Implementar sistema de comentarios en los productos
+    - Implementar sistema de calificación de los productos
+    - etc
+    - etc
+    - etc
+
 ## Tareas
 Tarea 0:
 - Crear la cuenta de github 
@@ -76,9 +110,6 @@ Tarea 7:
 - Creacion de usuario
 - Login de usuario
 - Paginas que requieren login
-
-PENDIENTE!
-Cambiar la librería crypt para windows
 
 
 ## Creado por:
