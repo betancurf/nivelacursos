@@ -1,12 +1,11 @@
-import email
-from email.policy import default
-from random import choices
 from peewee import *
 from playhouse.flask_utils import FlaskDB
 from uuid  import uuid4
 from strenum import StrEnum
 from enum import auto
 from flask_login import UserMixin
+from datetime import datetime
+
 
 db = FlaskDB()
 
@@ -81,3 +80,9 @@ class PQR(db.Model):
     email = CharField()
     asunto = CharField()
     mensaje = CharField(max_length=1000)
+
+
+class SolicitudParaProfesor(db.Model):
+    id = UUIDField(primary_key=True, default=uuid4)
+    solicitante = ForeignKeyField(Usuario, backref="solicitudes")
+    fecha = DateTimeField(default=datetime.now)
