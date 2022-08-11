@@ -14,18 +14,13 @@ from random import sample
 from modelos import db
 from modelos import PQR
 from modelos import Usuario
-
+import toml
 from passlib.hash import pbkdf2_sha256 as sha256
 
 # Zona de configuración de la app principal
 app = Flask(__name__)
+app.config.from_file("config.toml", load=toml.load)
 
-# Estas configuraciones NO deberían estar aquí. Se debe crear
-# un archivo de configuración y este NO debe ser compartido por
-# medio de github. Solo están aquí a modo de ejemplo y serán
-# removidos en proximas clases...
-app.config["DATABASE_URL"] = "sqlite:///db.sqlite3"
-app.config["SECRET_KEY"] = "ah fskdbfjha fi23i2b3i4b23kb,m c"
 
 # Zona de inicialización de herramientas
 db.init_app(app)  # Inicializa la base de datos con peewee

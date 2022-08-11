@@ -1,0 +1,4 @@
+ENV = "debug/production"
+DEBUG = true/false
+DATABASE_URL = "engine:///url:user:pass"
+SECRET_KEY = "llave secreta"
