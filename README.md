@@ -111,6 +111,10 @@ Tarea 7:
 - Login de usuario
 - Paginas que requieren login
 
+# Pendientes:
+
+- Inyeccion de comandos a jinja (formato de fecha)
+- Como bloquear la master
 
 ## Creado por:
 
