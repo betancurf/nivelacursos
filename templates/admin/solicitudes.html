@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Administrar profesores
+{% endblock %}
+
+{% block contenido %}
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url({{url_for('static', filename='/img/page-header.jpg')}});">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Administrar solicitudes</h2>
+            <!-- <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ol>
+          <li><a href="{{ url_for('inicio') }}">Home</a></li>
+          <li>Admin</li>
+          <li>Solicitudes</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Breadcrumbs -->
+    
+
+  <!-- ======= Horizontal Pricing Section ======= -->
+  <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <span>Solicitudes pendientes</span>
+          <h2>Solicitudes pendientes</h2>
+        </div>
+
+        {% for solicitud in solicitudes %}
+          <div class="row gy-4 pricing-item mt-4 {{ loop.cycle('', 'featured') }}" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+              <h3>{{ solicitud.solicitante.nickname }}</h3>
+            </div>
+            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+              <h4><span>{{solicitud.fecha}}</span></h4>
+            </div>
+            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+              <div class="text-center"><a href="{{url_for('app_admin.aceptar_solicitud_f', id_solicitud=solicitud.id)}}" class="buy-btn">Aceptar</a></div>
+            </div>
+            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+              <div class="text-center"><a href="{{url_for('app_admin.denegar_solicitud_f', id_solicitud=solicitud.id)}}" class="buy-btn">Denegar</a></div>
+            </div>
+          </div><!-- End Pricing Item -->
+        {% else %}
+          No hay solicitudes para profesor :_c
+        {% endfor %}
+
+      </div>
+    </section><!-- End Horizontal Pricing Section -->
+{% endblock %}
