@@ -30,121 +30,21 @@
   </div><!-- End Breadcrumbs -->
     
 
-  <!-- ======= Seccion Mis cursos ======= -->
-  <section id="service" class="services pt-0">
-    <div class="container" data-aos="fade-up">
+  {% include 'usuarios/frag_cursos_inscritos.html'   %}
+  
+  {% if current_user.rol == roles.ADMIN.value %}
+    {% include 'usuarios/frag_opciones_admin.html'   %}
+  {% endif %}
 
-      <div class="section-header">
-        <span>Mis cursos</span>
-        <h2>Mis cursos</h2>
-
-      </div>
-
-      <div class="row gy-4">
-        
-        {% for curso in mis_cursos %}
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card">
-                <div class="card-img">
-                    <img src="{{ url_for('static', filename='img/storage-service.jpg') }}" alt="" class="img-fluid">
-                </div>
-                <h3><a href="service-details.html" class="stretched-link">Storage</a></h3>
-                <p>Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam repellendus temporibus itaqueofficiis odit</p>
-                </div>
-            </div><!-- End Card Item -->
-        {% else %}
-            Aun no has comenzado ningun curso...
-        {% endfor %}
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ======= Seccion Cursos creados por im ======= -->
-  <section id="service" class="services pt-0">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-header">
-        <span>Cursos creados por mi</span>
-        <h2>Cursos creados por mi</h2>
-
-      </div>
-
-      <div class="row gy-4">
-        
-        {% for curso in cursos_creados %}
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card">
-                <div class="card-img">
-                    <img src="{{curso.url_foto}}" alt="" class="img-fluid">
-                </div>
-                <h3><a href="{{ url_for('app_cursos.detalle_f', id_curso=curso.id) }}" class="stretched-link">{{curso.nombre}}</a></h3>
-                <p>{{curso.descripcion}}</p>
-                </div>
-            </div><!-- End Card Item -->
-        {% else %}
-            Aun no has comenzado ningun curso...
-        {% endfor %}
-
-      </div>
-
-    </div>
-  </section>
-
-  <section id="horizontal-pricing" class="horizontal-pricing pt-0">
-    <div class="container aos-init aos-animate" data-aos="fade-up">
-
-      <div class="section-header">
-        <span>¿ Te sientes inspirado ?</span>
-        <h2>¿ Te sientes inspirado ?</h2>
-
-      </div>
   {% if current_user.rol == roles.PROFESOR.value %}
-
-      <div class="row gy-4 pricing-item featured mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h3>Crear nuevo curso</h3>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h4><sup>$</sup>29<span> / month</span></h4>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <ul>
-            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
-            <li><i class="bi bi-check"></i> <strong>Nec feugiat nisl pretium</strong></li>
-            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <div class="text-center"><a href="{{url_for('app_cursos.crear_f')}}" class="buy-btn">Crear curso</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-    {% else %}
-      
-      <div class="row gy-4 pricing-item mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h3>Quiero ser profesor !</h3>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <h4><sup>$</sup>49<span> / month</span></h4>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <ul>
-            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
-            <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
-            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-          <div class="text-center"><a href="" class="buy-btn">Buy Now</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-    {% endif %}
-    </div>
-  </section>
+    {% include 'usuarios/frag_cursos_creados.html'   %}
+    {% include 'usuarios/frag_crear_curso.html'   %}
+  {% endif %}
+  
+  
+  {% if current_user.rol == roles.ESTUDIANTE.value %}
+    {% include 'usuarios/frag_ser_profesor.html'   %}
+  {% endif %}
+  
       
 {% endblock %}

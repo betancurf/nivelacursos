@@ -1,18 +1,21 @@
 from flask import Blueprint
 from flask import render_template
+from flask import redirect
+from flask import flash
+from flask import url_for
 from flask_login import login_required
 from flask_login import current_user
-
+from enums import FlashCat
 from modelos import Curso
 from modelos import UsuarioCurso
 from modelos import Usuario
+from modelos import SolicitudParaProfesor
 
 blue_usuarios = Blueprint("app_usuarios", __name__)
 
 @blue_usuarios.route("/perfil")
 @login_required
 def perfil_f():
-
     mis_cursos = UsuarioCurso.select().where(UsuarioCurso.usuario == current_user)
 
     # # Puedo consultar los cursos creados por este usuario mediante esta query:
@@ -31,5 +34,9 @@ def perfil_f():
     )
 
 
-
-
+@blue_usuarios.route("/solitud_para_profesor")
+@login_required
+def solitud_para_profesor_f():
+    flash("Solicitud enviada con exito", FlashCat.EXITO.value)
+    SolicitudParaProfesor.create(solicitante=current_user)
+    return redirect(url_for("app_usuarios.perfil_f"))

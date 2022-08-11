@@ -109,7 +109,19 @@
         <br>
         <br>
     {% endblock %}
-     
+
+    <div style="display: block; position: fixed; right: 0; bottom: 0; min-width: 250px; width: 450px;">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{category}} alert-dismissible" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> {{ message }}.
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
 
