@@ -288,4 +288,4 @@ def salir_f():
     return redirect(url_for("inicio"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
