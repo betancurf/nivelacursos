@@ -69,8 +69,8 @@ class Curso(db.Model):
 
 
 class UsuarioCurso(db.Model):
-    usuario = ForeignKeyField(Usuario)
-    curso = ForeignKeyField(Curso)
+    usuario = ForeignKeyField(Usuario, backref="cursos")
+    curso = ForeignKeyField(Curso, backref="estudiantes")
     nota = FloatField(default=0)
 
 
