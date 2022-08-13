@@ -16,7 +16,11 @@ blue_usuarios = Blueprint("app_usuarios", __name__)
 @blue_usuarios.route("/perfil")
 @login_required
 def perfil_f():
-    mis_cursos = UsuarioCurso.select().where(UsuarioCurso.usuario == current_user)
+    # # Para obtener los cursos del usuario, pueden ejecutar este query
+    # mis_cursos = list(UsuarioCurso.select().where(UsuarioCurso.usuario == current_user))
+
+    # O alternativamente, usar el backreference creado en la clase Usuario desde la clase UsuarioCurso
+    mis_cursos = current_user.cursos
 
     # # Puedo consultar los cursos creados por este usuario mediante esta query:
     # cursos_creados = list(Curso.select().where(Curso.creador == current_user))

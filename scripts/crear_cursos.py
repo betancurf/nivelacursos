@@ -1,7 +1,10 @@
 import click 
 from app import app
 from modelos import Usuario
+from modelos import Curso
 from passlib.hash import pbkdf2_sha256 as sha256
+
+from .crear_usuarios import usuarios
 
 
 @click.group
@@ -12,35 +15,25 @@ def cursos():
 
 @cursos.command("crear_cursos")
 def crear_cursos():
-    '''En construccion ....'''
-    pass
+    '''Crear cursos de prueba para los profesores de prueba. Para cada profesor se crean 5 cursos'''
+    
+    profes = Usuario.select().where(
+        (Usuario.nickname.contains("profe-")) 
+        &  # AND
+        (Usuario.rol==Usuario.ROLES.PROFESOR.value)
+    )
 
-# '''
-# Este script permite crear cursos fake para hacer pruebas
-# Requiere:
-# - id de un usuario de la base de datos
-# - ulr de una foto 
-# '''
-
-# from uuid import uuid4
-
-# id_usuario = '166ef762d27d480880ecc4168f0ba20c'
-# url_foto = 'https://learnenglishteens.britishcouncil.org/sites/teens/files/rs163_91459369-low.jpg'
-# cantidad = 10
-
-
-# for i in range(cantidad):
-#     query = f"""
-#     INSERT INTO "main"."curso"
-#     ("id", "creador_id", "nombre", "descripcion", "url_foto")
-#     VALUES ('{uuid4()}', '{id_usuario}', 'Curso {i}', 'Curso test', '{url_foto}');
-#     """
-
-#     print(query)
-#     print()
-
-
-
-
-
-
+    print("......")
+    for profe in profes:
+        for i in range(5):
+            try:
+                Curso.create(
+                    creador = profe,
+                    nombre = f'curso-{i+1}-{profe.nickname}',
+                    descripcion = 'Curso de prueba creado automaticamente para validad el funcionamientom correcto de la app',
+                    url_foto = 'https://1.bp.blogspot.com/-sffTqPYtaHY/Xl5hm6h8CQI/AAAAAAAAcew/KPScjjXwwgkQT-5spxLURf01P7RPbke8ACLcBGAsYHQ/s1600/12.png',
+                    # url_foto = "https://learnenglishteens.britishcouncil.org/sites/teens/files/rs163_91459369-low.jpg"
+                )
+                print("Curso creado con exito")
+            except Exception as e:
+                print(f"Erro: {e}")

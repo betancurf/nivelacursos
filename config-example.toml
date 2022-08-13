@@ -1,4 +1,4 @@
-ENV = "debug/production"
-DEBUG = true/false
-DATABASE_URL = "engine:///url:user:pass"
-SECRET_KEY = "llave secreta"
+ENV = "debug"
+DEBUG = true
+DATABASE_URL = "sqlite:///db.sqlite3"
+SECRET_KEY = "ah fskdbfjha fi23i2b3i4b23kb,m c"
