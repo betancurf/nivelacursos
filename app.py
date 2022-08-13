@@ -11,6 +11,7 @@ from modulos.usuarios import blue_usuarios
 from modulos.admin import blue_admin
 from pprint import pprint
 from random import sample
+from modelos import Curso
 from modelos import db
 from modelos import PQR
 from modelos import Usuario
@@ -57,38 +58,7 @@ def validar_password(texto_plano:str , texto_seguro: str)-> str:
 @app.route("/index")
 @app.route("/inicio")
 def inicio():
-    info_cursos_destacados = [
-        {
-            "url_foto": "img/storage-service.jpg",
-            "nombre":"Programación en Java",
-            "descripcion":"Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam repellendus temporibus itaqueofficiis odit",
-        },
-        {
-            "url_foto": "img/logistics-service.jpg",
-            "nombre":"Programación en Python",
-            "descripcion":"Asperiores provident dolor accusamus pariatur dolore nam id audantium ut et iure incidunt molestiae dolor ipsam ducimus occaecati nisi",
-        },
-        {
-            "url_foto": "img/cargo-service.jpg",
-            "nombre":"Programación web",
-            "descripcion":"Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil",
-        },
-        {
-            "url_foto": "img/trucking-service.jpg",
-            "nombre":"O.O.P",
-            "descripcion":"Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil",
-        },
-        {
-            "url_foto": "img/packaging-service.jpg",
-            "nombre":"Bases de datos",
-            "descripcion":"Illo consequuntur quisquam delectus praesentium modi dignissimos facere vel cum onsequuntur maiores beatae consequatur magni voluptates",
-        },
-        {
-            "url_foto": "img/warehousing-service.jpg",
-            "nombre":"SQL",
-            "descripcion":"Quas assumenda non occaecati molestiae. In aut earum sed natus eatae in vero. Ab modi quisquam aut nostrum unde et qui est non quo nulla",
-        },
-    ]
+    info_cursos_destacados = list(Curso.select())
 
     info_servicios = [
         {
@@ -176,7 +146,7 @@ def inicio():
 
     return render_template(
         'estaticas/index.html',
-        cursos_destacados=sample(info_cursos_destacados, 3),
+        cursos_destacados=sample(info_cursos_destacados, min(3, len(info_cursos_destacados))),
         servicios=info_servicios,
         tutores=info_tutores
     )
