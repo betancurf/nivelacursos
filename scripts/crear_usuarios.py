@@ -53,7 +53,7 @@ def crear_profesores():
 
 @usuarios.command("crear_estudiantes")
 def crear_estudiantes():
-    '''Este comando crear 10 profesores con nickname="est-<numero>" y pass="est-<numero>". Si el estudiante con ese Nick ya existe, lo sobre escribe con los valores por defecto'''
+    '''Este comando crear 100 estudiantes con nickname="est-<numero>" y pass="est-<numero>". Si el estudiante con ese Nick ya existe, lo sobre escribe con los valores por defecto'''
     for i in range(10):
         nombre = f"est-{i+1}"
         try:
